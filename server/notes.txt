@@ -1,0 +1,19 @@
+There are podcasts which don't provide an rss feed... FML
+For instance, NY Times "The Daily" podcast which is available on Apple Podcasts, RadioPublic, and Stitcher
+
+This is interesting...
+http://getrssfeed.com/
+
+http://feed.thisamericanlife.org/talpodcast?format=xml
+http://feed.thisamericanlife.org/talpodcast
+https://podcast.thisamericanlife.org/podcast/165.mp3
+
+Need a way to extract all these podcasts...
+https://www.listennotes.com/api/
+
+Apple Podcast API:
+https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/#overview
+limit: 20 calls per minute
+
+Other Podcast APIs:
+https://www.programmableweb.com/category/podcasts/api

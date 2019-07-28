@@ -5,8 +5,10 @@ var he = require("he");
 const axios = require("axios");
 const matchAll = require("match-all"); // required since Node doesn't support this regex method.
 
-const testURL = "https://feed.syntax.fm/rss"; // Syntax.fm
+// serial: http://feeds.serialpodcast.org/serialpodcast
+// const testURL = "https://feed.syntax.fm/rss"; // Syntax.fm
 // const testURL = "https://www.npr.org/rss/podcast.php?id=510289"; // Planet Money
+const testURL = "http://feed.thisamericanlife.org/talpodcast?format=xml"; // This American Life
 
 var options = {
   attributeNamePrefix: "", // was "@_"
@@ -43,9 +45,6 @@ function parseRSSfeed(url) {
       const tObj = parser.getTraversalObj(rssXML, options); // Intermediate obj
       const jsonObj = parser.convertToJson(tObj, options);
       const rssJson = jsonObj.rss.channel;
-      // console.log(rssJson);
-      console.log(rssJson["itunes:category"]);
-      console.log("=================================================");
       const fixedRssJson = {};
       recursivelyCleanObj(rssJson, fixedRssJson);
       fixedRssJson.itunesCategory = fixCategories(fixedRssJson.itunesCategory); // mutate the array with this category fix/hack
@@ -123,5 +122,6 @@ function displayPodcast(json) {
       console.log(key + ":", json[key]);
     }
   });
-  // console.log(json.item[0]);
+  console.log("*** First podcast: ***");
+  console.log(json.item[0]);
 }
